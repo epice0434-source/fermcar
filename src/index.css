@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --color-accent-blue: #3b82f6;
+  --color-glass-bg: rgba(255, 255, 255, 0.03);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
+  --color-card-gradient-start: rgba(30, 41, 59, 0.4);
+  --color-card-gradient-end: rgba(15, 23, 42, 0.4);
+  --color-muted: #64748b;
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .glass-panel {
+    background: var(--color-glass-bg);
+    border: 1px solid var(--color-glass-border);
+    backdrop-filter: blur(8px);
+  }
+
+  .module-card {
+    background: linear-gradient(145deg, var(--color-card-gradient-start), var(--color-card-gradient-end));
+    border: 1px solid var(--color-glass-border);
+  }
+
+  .status-badge {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(59, 130, 246, 0.2);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+  }
+
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+body {
+  @apply antialiased text-slate-200 bg-[#0a0b10];
+  overflow: hidden;
+}
+
+::selection {
+  @apply bg-blue-500/30 text-white;
+}
